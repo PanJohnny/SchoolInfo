@@ -4,8 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window extends JFrame {
-    public Window() {
+    private final Configurator config;
+    public Window(Configurator configurator) {
         super("School Info Board");
+        this.config = configurator;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(300, 150));
         moveToRightBottomCorner();
@@ -160,7 +162,7 @@ public class Window extends JFrame {
         // Set location relative to bottom right corner of the screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (screenSize.getWidth() - getWidth());
-        int y = (int) (screenSize.getHeight() - getHeight());
+        int y = (int) (screenSize.getHeight() - getHeight()) - config.getOffsetBottom();
         setLocation(x, y);
     }
 }

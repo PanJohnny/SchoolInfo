@@ -3,11 +3,11 @@ package me.panjohnny.services;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import kotlin.Pair;
 import me.panjohnny.Configurator;
 import me.panjohnny.baka4j.BakaClient;
 import me.panjohnny.baka4j.impl.BakaClientImpl;
 import me.panjohnny.baka4j.util.ReqParameters;
-import org.graalvm.collections.Pair;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -132,6 +132,6 @@ public class BakalariService extends Service {
             rightSide.add("Dnes už nic nemáme");
         }
 
-        return Pair.create(leftSide.toArray(new String[0]), rightSide.toArray(new String[0]));
+        return new Pair<>(leftSide.toArray(new String[0]), rightSide.toArray(new String[0]));
     }
 }

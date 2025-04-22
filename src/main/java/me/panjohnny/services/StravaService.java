@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import me.panjohnny.Configurator;
 import okhttp3.*;
-import org.graalvm.collections.Pair;
+import kotlin.Pair;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -144,7 +144,7 @@ public class StravaService extends Service {
             right.add(extra);
         }
 
-        return Pair.create(left.toArray(new String[0]), right.toArray(new String[0]));
+        return new Pair<>(left.toArray(new String[0]), right.toArray(new String[0]));
     }
 
     private String formatFoodName(String foodName) {

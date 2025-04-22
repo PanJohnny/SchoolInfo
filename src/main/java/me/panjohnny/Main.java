@@ -7,13 +7,13 @@ public class Main {
     private static Window w;
     public static void main(String[] args) {
         Configurator configurator = new Configurator();
-        w = new Window();
+        w = new Window(configurator);
 
         BakalariService bakalariService = new BakalariService(configurator);
         try {
             bakalariService.login();
             var data = bakalariService.getData();
-            w.displayData(data.getLeft(), data.getRight());
+            w.displayData(data.component1(), data.component2());
         } catch (Exception e) {
             System.out.println("Failed to login to Bakalari: " + e.getMessage());
             throw new RuntimeException(e);
@@ -24,11 +24,11 @@ public class Main {
             stravaService.login();
             var data = stravaService.getData();
             w.appendData("###", "###");
-            for (int i = 0; i < data.getLeft().length; i++) {
-                String l = data.getLeft()[i];
+            for (int i = 0; i < data.component1().length; i++) {
+                String l = data.component1()[i];
                 String r = null;
-                if (i < data.getRight().length) {
-                    r = data.getRight()[i];
+                if (i < data.component2().length) {
+                    r = data.component2()[i];
                 }
 
                 w.appendData(l, r);

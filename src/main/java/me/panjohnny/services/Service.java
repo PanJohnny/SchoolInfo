@@ -1,7 +1,7 @@
 package me.panjohnny.services;
 
 import me.panjohnny.Configurator;
-import org.graalvm.collections.Pair;
+import kotlin.Pair;
 
 public abstract class Service {
     protected Configurator config;

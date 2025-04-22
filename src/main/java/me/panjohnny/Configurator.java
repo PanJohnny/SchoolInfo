@@ -60,5 +60,10 @@ public class Configurator {
         properties.setProperty("bakalari.url", "https://gymlit.bakalari.cz/bakaweb");
         properties.setProperty("strava.username", "uživatel strava");
         properties.setProperty("strava.password", "heslo");
+        properties.setProperty("offset.bottom", "0");
+    }
+
+    public int getOffsetBottom() {
+        return Integer.parseInt(properties.getProperty("offset.bottom", "0"));
     }
 }
