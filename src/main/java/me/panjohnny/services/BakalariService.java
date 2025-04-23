@@ -65,6 +65,9 @@ public class BakalariService extends Service {
                 for (JsonElement atom : atoms) {
                     JsonObject at = atom.getAsJsonObject();
                     String hourId = at.get("HourId").getAsString();
+                    if (at.get("SubjectId").isJsonNull()) {
+                        continue;
+                    }
                     String subjectId = at.get("SubjectId").getAsString();
                     String roomId = at.get("RoomId").getAsString();
 
